@@ -64,18 +64,19 @@
     dest: /etc/gitlab/ssl
     state: directory
 
-- name: write certificate
+- name: write certificate and key
   copy:
-    dest: /etc/gitlab/ssl/cubi-gitlab.bihealth.org.crt
-    content: "{{ lookup('passwordstore', 'certs/cubi-gitlab.bihealth.org.crt returnall=true') }}"
-  notify:
-    - reconfigure gitlab
-    - restart gitlab
-
-- name: write key
-  copy:
-    dest: /etc/gitlab/ssl/cubi-gitlab.bihealth.org.key
-    content: "{{ lookup('passwordstore', 'certs/cubi-gitlab.bihealth.org.key returnall=true') }}"
+    dest: /etc/gitlab/ssl/{{ item.name }}.{{ item.suffix }}
+    content: "{{ lookup('passwordstore', 'certs/{{ item.name }}.{{ item.suffix }} returnall=true') }}"
+  loop:
+    - name: cubi-gitlab.bihealth.org
+      suffix: crt
+    - name: cubi-gitlab.bihealth.org
+      suffix: key
+    - name: chat.bihealth.org
+      suffix: crt
+    - name: chat.bihealth.org
+      suffix: key
   notify:
     - reconfigure gitlab
     - restart gitlab
