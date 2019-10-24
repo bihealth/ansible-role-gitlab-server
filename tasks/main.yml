@@ -1,0 +1,88 @@
+---
+
+- name: install dependencies
+  apt:
+    state: present
+    package:
+      - ca-certificates
+      - postfix
+      - curl
+      - aptitude
+      - htop
+
+# - name: configure sysctl unless running in container
+#   sysctl:
+#     name: "{{ item.name }}"
+#     value: "{{ item.value }}"
+#     sysctl_set: true
+#   loop:
+#     - name: kernel.shmall
+#       value: 4194304
+#     - name: kernel.shmmax
+#       value: 17179869184
+#   notify:
+#     - reconfigure gitlab
+#     - restart gitlab
+
+- name: add repository
+  shell: >
+    curl https://packages.gitlab.com/install/repositories/gitlab/gitlab-ce/script.deb.sh |
+    bash;
+    curl -L https://packages.gitlab.com/install/repositories/runner/gitlab-runner/script.deb.sh |
+    bash;
+    apt-get update
+  args:
+    creates: /etc/apt/sources.list.d/gitlab_gitlab-ce.list
+    warn: false
+
+- name: pin package
+  copy:
+    dest: /etc/apt/preferences.d/pin-gitlab-runner.pref
+    content: |
+      Explanation: Prefer GitLab provided packages over the Debian native ones
+      Package: gitlab-runner
+      Pin: origin packages.gitlab.com
+      Pin-Priority: 1001
+
+- name: install package
+  apt:
+    package:
+      - gitlab-ce
+      - gitlab-runner
+    state: present
+
+- name: configure
+  template:
+    src: gitlab.rb.j2
+    dest: /etc/gitlab/gitlab.rb
+  notify:
+    - reconfigure gitlab
+    - restart gitlab
+
+- name: create directory for certificate
+  file:
+    dest: /etc/gitlab/ssl
+    state: directory
+
+- name: write certificate
+  copy:
+    dest: /etc/gitlab/ssl/cubi-gitlab.bihealth.org.crt
+    content: "{{ lookup('passwordstore', 'certs/cubi-gitlab.bihealth.org.crt returnall=true') }}"
+  notify:
+    - reconfigure gitlab
+    - restart gitlab
+
+- name: write key
+  copy:
+    dest: /etc/gitlab/ssl/cubi-gitlab.bihealth.org.key
+    content: "{{ lookup('passwordstore', 'certs/cubi-gitlab.bihealth.org.key returnall=true') }}"
+  notify:
+    - reconfigure gitlab
+    - restart gitlab
+
+- name: configure gitlab-runner
+  copy:
+    src: config.toml
+    dest: /etc/gitlab-runner/config.toml
+  notify:
+    - restart gitlab-runner

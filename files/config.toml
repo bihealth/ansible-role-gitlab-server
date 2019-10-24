@@ -1,0 +1,210 @@
+concurrent = 8
+check_interval = 0
+
+[[runners]]
+  name = "cubi-gitlab"
+  output_limit = 409600
+  url = "https://cubi-gitlab.bihealth.org"
+  token = "a62c305f4f792a3d569db754bca070"
+  executor = "docker"
+  tls-ca-file = "/etc/ssl/certs/cubi-gitlab.bihealth.org.crt"
+  [runners.docker]
+    tls_verify = false
+    image = "python:3.5"
+    privileged = false
+    disable_cache = false
+    volumes = ["/cache", "/etc/gitlab/ssl/cubi-gitlab.bihealth.org.crt:/etc/ssl/certs/cubi-gitlab.bihealth.org.crt"]
+    shm_size = 0
+    pre_clone_script = "git config --global http.sslCAInfo /etc/ssl/certs/cubi-gitlab.bihealth.org.crt"
+  [runners.cache]
+
+[[runners]]
+  name = "cubi-gitlab-2"
+  output_limit = 409600
+  url = "https://cubi-gitlab.bihealth.org"
+  token = "22532b04047d9b439d70c302bb6c98"
+  executor = "docker"
+  tls-ca-file = "/etc/ssl/certs/cubi-gitlab.bihealth.org.crt"
+  [runners.docker]
+    tls_verify = false
+    image = "python:3.5"
+    privileged = false
+    disable_cache = false
+    volumes = ["/cache", "/etc/gitlab/ssl/cubi-gitlab.bihealth.org.crt:/etc/ssl/certs/cubi-gitlab.bihealth.org.crt"]
+    shm_size = 0
+    pre_clone_script = "git config --global http.sslCAInfo /etc/ssl/certs/cubi-gitlab.bihealth.org.crt"
+  [runners.cache]
+
+[[runners]]
+  name = "cubi-gitlab-3"
+  output_limit = 409600
+  url = "https://cubi-gitlab.bihealth.org"
+  token = "8865092b6102a5e716de8f028b551f"
+  executor = "docker"
+  tls-ca-file = "/etc/ssl/certs/cubi-gitlab.bihealth.org.crt"
+  [runners.docker]
+    tls_verify = false
+    image = "python:3.5"
+    privileged = false
+    disable_cache = false
+    volumes = ["/cache", "/etc/gitlab/ssl/cubi-gitlab.bihealth.org.crt:/etc/ssl/certs/cubi-gitlab.bihealth.org.crt"]
+    shm_size = 0
+    pre_clone_script = "git config --global http.sslCAInfo /etc/ssl/certs/cubi-gitlab.bihealth.org.crt"
+  [runners.cache]
+
+[[runners]]
+  name = "cubi-gitlab-4"
+  output_limit = 409600
+  url = "https://cubi-gitlab.bihealth.org"
+  token = "6a3e648a14395fb441ac0ccc0bc429"
+  executor = "docker"
+  tls-ca-file = "/etc/ssl/certs/cubi-gitlab.bihealth.org.crt"
+  [runners.docker]
+    tls_verify = false
+    image = "python:3.5"
+    privileged = false
+    disable_cache = false
+    volumes = ["/cache", "/etc/gitlab/ssl/cubi-gitlab.bihealth.org.crt:/etc/ssl/certs/cubi-gitlab.bihealth.org.crt"]
+    shm_size = 0
+    pre_clone_script = "git config --global http.sslCAInfo /etc/ssl/certs/cubi-gitlab.bihealth.org.crt"
+  [runners.cache]
+
+[[runners]]
+  name = "cubi-gitlab-5"
+  output_limit = 409600
+  url = "https://cubi-gitlab.bihealth.org"
+  token = "4b861741fcc1c8a6650440dea9d4da"
+  executor = "docker"
+  tls-ca-file = "/etc/ssl/certs/cubi-gitlab.bihealth.org.crt"
+  [runners.docker]
+    tls_verify = false
+    image = "python:3.5"
+    privileged = false
+    disable_cache = false
+    volumes = ["/cache", "/etc/gitlab/ssl/cubi-gitlab.bihealth.org.crt:/etc/ssl/certs/cubi-gitlab.bihealth.org.crt"]
+    shm_size = 0
+    pre_clone_script = "git config --global http.sslCAInfo /etc/ssl/certs/cubi-gitlab.bihealth.org.crt"
+  [runners.cache]
+
+[[runners]]
+  name = "cubi-gitlab-6"
+  output_limit = 409600
+  url = "https://cubi-gitlab.bihealth.org/"
+  token = "dd35cb8dda4f6ae553588eba16e050"
+  executor = "docker"
+  tls-ca-file = "/etc/ssl/certs/cubi-gitlab.bihealth.org.crt"
+  [runners.docker]
+    tls_verify = false
+    image = "python:3.5"
+    privileged = false
+    disable_cache = false
+    volumes = ["/cache", "/etc/gitlab/ssl/cubi-gitlab.bihealth.org.crt:/etc/ssl/certs/cubi-gitlab.bihealth.org.crt"]
+    shm_size = 0
+    pre_clone_script = "git config --global http.sslCAInfo /etc/ssl/certs/cubi-gitlab.bihealth.org.crt"
+  [runners.cache]
+
+[[runners]]
+  name = "cubi-gitlab-7"
+  output_limit = 409600
+  url = "https://cubi-gitlab.bihealth.org/"
+  token = "434a597a0a55ef884521bb0f27980a"
+  executor = "docker"
+  tls-ca-file = "/etc/ssl/certs/cubi-gitlab.bihealth.org.crt"
+  [runners.docker]
+    tls_verify = false
+    image = "python:3.5"
+    privileged = false
+    disable_cache = false
+    volumes = ["/cache", "/etc/gitlab/ssl/cubi-gitlab.bihealth.org.crt:/etc/ssl/certs/cubi-gitlab.bihealth.org.crt"]
+    shm_size = 0
+    pre_clone_script = "git config --global http.sslCAInfo /etc/ssl/certs/cubi-gitlab.bihealth.org.crt"
+  [runners.cache]
+
+[[runners]]
+  name = "cubi-gitlab-8"
+  output_limit = 409600
+  url = "https://cubi-gitlab.bihealth.org/"
+  token = "c8a991bdb87f9e2ca93e08cac59f0a"
+  executor = "docker"
+  tls-ca-file = "/etc/ssl/certs/cubi-gitlab.bihealth.org.crt"
+  [runners.docker]
+    tls_verify = false
+    image = "python:3.5"
+    privileged = false
+    disable_cache = false
+    volumes = ["/cache", "/etc/gitlab/ssl/cubi-gitlab.bihealth.org.crt:/etc/ssl/certs/cubi-gitlab.bihealth.org.crt"]
+    shm_size = 0
+    pre_clone_script = "git config --global http.sslCAInfo /etc/ssl/certs/cubi-gitlab.bihealth.org.crt"
+  [runners.cache]
+
+[[runners]]
+  name = "cubi-gitlab-9"
+  url = "https://cubi-gitlab.bihealth.org/"
+  token = "6NmAURtkP6s46b3jZxeL"
+  executor = "docker"
+  tls-ca-file = "/etc/ssl/certs/cubi-gitlab.bihealth.org.crt"
+  [runners.docker]
+    tls_verify = false
+    image = "docker:stable"
+    privileged = true
+    disable_cache = false
+    cache_dir = "cache"
+    volumes = ["/var/run/docker.sock:/var/run/docker.sock", "/certs/client", "/cache", "/etc/gitlab/ssl/cubi-gitlab.bihealth.org.crt:/etc/ssl/certs/cubi-gitlab.bihealth.org.crt"]
+    shm_size = 0
+    pre_clone_script = "git config --global http.sslCAInfo /etc/ssl/certs/cubi-gitlab.bihealth.org.crt"
+  [runners.cache]
+    Insecure = false
+
+[[runners]]
+  name = "cubi-gitlab-10"
+  url = "https://cubi-gitlab.bihealth.org/"
+  token = "YToUxYQSw7GJ_UU_m2iM"
+  executor = "docker"
+  tls-ca-file = "/etc/ssl/certs/cubi-gitlab.bihealth.org.crt"
+  [runners.docker]
+    tls_verify = false
+    image = "docker:stable"
+    privileged = true
+    disable_cache = false
+    cache_dir = "cache"
+    volumes = ["/var/run/docker.sock:/var/run/docker.sock", "/certs/client", "/cache", "/etc/gitlab/ssl/cubi-gitlab.bihealth.org.crt:/etc/ssl/certs/cubi-gitlab.bihealth.org.crt"]
+    shm_size = 0
+    pre_clone_script = "git config --global http.sslCAInfo /etc/ssl/certs/cubi-gitlab.bihealth.org.crt"
+  [runners.cache]
+    Insecure = false
+
+[[runners]]
+  name = "cubi-gitlab-11"
+  url = "https://cubi-gitlab.bihealth.org/"
+  token = "WzRijr7FLy-NMPnPgyyf"
+  executor = "docker"
+  tls-ca-file = "/etc/ssl/certs/cubi-gitlab.bihealth.org.crt"
+  [runners.docker]
+    tls_verify = false
+    image = "docker:stable"
+    privileged = true
+    disable_cache = false
+    cache_dir = "cache"
+    volumes = ["/var/run/docker.sock:/var/run/docker.sock", "/certs/client", "/cache", "/etc/gitlab/ssl/cubi-gitlab.bihealth.org.crt:/etc/ssl/certs/cubi-gitlab.bihealth.org.crt"]
+    shm_size = 0
+    pre_clone_script = "git config --global http.sslCAInfo /etc/ssl/certs/cubi-gitlab.bihealth.org.crt"
+  [runners.cache]
+    Insecure = false
+
+[[runners]]
+  name = "cubi-gitlab-12"
+  url = "https://cubi-gitlab.bihealth.org/"
+  token = "NdicyM5-e7GZFXRmrRCm"
+  executor = "docker"
+  tls-ca-file = "/etc/ssl/certs/cubi-gitlab.bihealth.org.crt"
+  [runners.docker]
+    tls_verify = false
+    image = "docker:stable"
+    privileged = true
+    disable_cache = false
+    cache_dir = "cache"
+    volumes = ["/var/run/docker.sock:/var/run/docker.sock", "/certs/client", "/cache", "/etc/gitlab/ssl/cubi-gitlab.bihealth.org.crt:/etc/ssl/certs/cubi-gitlab.bihealth.org.crt"]
+    shm_size = 0
+    pre_clone_script = "git config --global http.sslCAInfo /etc/ssl/certs/cubi-gitlab.bihealth.org.crt"
+  [runners.cache]
+    Insecure = false

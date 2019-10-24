@@ -1,0 +1,10 @@
+---
+
+- name: reconfigure gitlab
+  command: gitlab-ctl reconfigure
+
+- name: restart gitlab
+  command: gitlab-ctl restart
+
+- name: restart gitlab-runner
+  systemd: name=gitlab-runner state=restarted
