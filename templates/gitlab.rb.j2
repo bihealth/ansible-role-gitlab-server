@@ -287,7 +287,7 @@ gitlab_rails['lfs_enabled'] = {% if gitlab_lfs_enabled %}true{% else %}false{% e
 ### GitLab Mattermost
 ###! These settings are void if Mattermost is installed on the same omnibus
 ###! install
-# gitlab_rails['mattermost_host'] = "https://mattermost.example.com"
+gitlab_rails['mattermost_host'] = "https://mattermost.example.com"
 
 ### LDAP Settings
 ###! Docs: https://docs.gitlab.com/omnibus/settings/ldap.html

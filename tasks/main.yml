@@ -73,9 +73,9 @@
       suffix: crt
     - name: cubi-gitlab.bihealth.org
       suffix: key
-    - name: chat.bihealth.org
+    - name: cubi-chat.bihealth.org
       suffix: crt
-    - name: chat.bihealth.org
+    - name: cubi-chat.bihealth.org
       suffix: key
   notify:
     - reconfigure gitlab
