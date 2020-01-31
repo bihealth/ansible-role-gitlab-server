@@ -580,13 +580,13 @@ gitlab_rails['omniauth_auto_link_saml_user'] = {% if gitlab_omniauth_auto_link_s
 ##! Docs: https://docs.gitlab.com/ce/administration/container_registry.html
 ################################################################################
 
-# registry_external_url 'https://registry.example.com'
+registry_external_url 'https://cubi-gitlab.bihealth.org:4567'
 
 ### Settings used by GitLab application
-# gitlab_rails['registry_enabled'] = true
-# gitlab_rails['registry_host'] = "registry.gitlab.example.com"
-# gitlab_rails['registry_port'] = "5005"
-# gitlab_rails['registry_path'] = "/var/opt/gitlab/gitlab-rails/shared/registry"
+gitlab_rails['registry_enabled'] = true
+gitlab_rails['registry_host'] = "cubi-gitlab.bihealth.org"
+gitlab_rails['registry_port'] = "5005"
+gitlab_rails['registry_path'] = "/var/opt/gitlab/gitlab-rails/shared/registry"
 
 # Notification secret, it's used to authenticate notification requests to GitLab application
 # You only need to change this when you use external Registry service, otherwise
