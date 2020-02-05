@@ -1120,7 +1120,7 @@ gitlab_rails['registry_path'] = "/var/opt/gitlab/gitlab-rails/shared/registry"
 ##! Docs: https://docs.gitlab.com/omnibus/settings/nginx.html#supporting-proxied-ssl
 # nginx['listen_https'] = nil
 
-# nginx['custom_gitlab_server_config'] = "location ^~ /foo-namespace/bar-project/raw/ {\n deny all;\n}\n"
+nginx['custom_gitlab_server_config'] = "location /-/plantuml { \n rewrite ^/-/plantuml/(.*) /$1 break;\n proxy_cache off; \n proxy_pass http://localhost:8081; \n}\n"
 # nginx['custom_nginx_config'] = "include /etc/nginx/conf.d/example.conf;"
 # nginx['proxy_read_timeout'] = 3600
 # nginx['proxy_connect_timeout'] = 300
